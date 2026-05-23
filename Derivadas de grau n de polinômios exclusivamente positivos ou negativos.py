@@ -3,21 +3,21 @@
 #IDEIA: Input de grau máximo da função --> Quantindade de valores numéricos (os que multiplicam as incógnitas) que devem ser adicionados.
 #Pode ter a ver com um valor while: Enquanto TCP<=GrauMáximo+1 --> Adiciona um valor numérico numa memória (n+1)
 from math import sqrt
-GM = int(input("Qual o grau máximo da sua função? "))
-QD = int(input("Quantas vezes você quer derivar a função? "))
+GM = int(input("Qual o grau máximo da sua função? ")) #Grau Máximo da função (positivo ou negativo)
+QD = int(input("Quantas vezes você quer derivar a função? ")) #Quantidade de derivadas da função
 tcP = 0
 # LISTAS:
-NpEq = list()
-NeEq = list()
-FnDer = list()
-FenDer = list()
+NpEq = list() #Número puro da Equação
+NeEq = list() #Número elevante da Equação
+FnDer = list() #Função n Derivada
+FenDer = list() #A parte que subtrai os elevados
 
 # FUNÇÕES PERSONALIZADAS
-def AdX(x):
+def AdX(x): #Adicionadora de X (caso você queira adicionar X ao lado do valor puro, EX: [2.0 , 3.0] [2.0 , 1.0] --> 2X² 3X¹
     return "{}X^{}".format(x , Tcp)
-def Der(x):
+def Der(x): #Derivação na parte das "bases"/números puros
         return NpEq[x] * NeEq[x]
-def El(x):
+def El(x): #A parte que subtrai em 1 a potência
         return NeEq[x] -1
 
 TCP = 0
@@ -30,10 +30,10 @@ while TCP<=sqrt(GM*GM):
          Tcp = Tcp-1
     else:
          Tcp = Tcp+1
-    FpxF = float(input("Qual o fator na posição {} da função? ".format(TCP)))
+    FpxF = float(input("Qual o fator na posição {} da função? ".format(TCP))) #Fator na posição x da Função
     NpEq.insert(TCP , FpxF)
     NeEq.insert(TCP , Tcp)
-print(TCP , Tcp , NpEq , NeEq)
+print(TCP , Tcp , NpEq , NeEq) #Só pra análise. Completamente descartável
 TCP = 0
 while TCP<sqrt(QD*QD):
     TCP=TCP+1
