@@ -1,4 +1,7 @@
+#Faz função recebe dois parâmetros, uma sendo um uma função polinomial e o outro sendo a quantidade de derivações que essa função vai receber.
 
+#IDEIA: Input de grau máximo da função --> Quantindade de valores numéricos (os que multiplicam as incógnitas) que devem ser adicionados.
+#Pode ter a ver com um valor while: Enquanto TCP<=GrauMáximo+1 --> Adiciona um valor numérico numa memória (n+1)
 from math import sqrt
 GM = int(input("Qual o grau máximo da sua função? ")) #Grau Máximo da função (positivo ou negativo)
 QD = int(input("Quantas vezes você quer derivar a função? ")) #Quantidade de derivadas da função
