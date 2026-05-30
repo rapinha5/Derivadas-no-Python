@@ -1,25 +1,22 @@
-#Faz função recebe dois parâmetros, uma sendo um uma função polinomial e o outro sendo a quantidade de derivações que essa função vai receber.
-
-#IDEIA: Input de grau máximo da função --> Quantindade de valores numéricos (os que multiplicam as incógnitas) que devem ser adicionados.
-#Pode ter a ver com um valor while: Enquanto TCP<=GrauMáximo+1 --> Adiciona um valor numérico numa memória (n+1)
 from math import sqrt
+
 GM = int(input("Qual o grau máximo da sua função? ")) #Grau Máximo da função (positivo ou negativo)
 QD = int(input("Quantas vezes você quer derivar a função? ")) #Quantidade de derivadas da função
 tcP = 0
-# LISTAS:
+# LISTAS: ------------------------------------------
 NpEq = list() #Número puro da Equação
 NeEq = list() #Número elevante da Equação
 FnDer = list() #Função n Derivada
 FenDer = list() #A parte que subtrai os elevados
-
-# FUNÇÕES PERSONALIZADAS
-def AdX(x): #Adicionadora de X (caso você queira adicionar X ao lado do valor puro, EX: [2.0 , 3.0] [2.0 , 1.0] --> 2X² 3X¹
-    return "{}X^{}".format(x , Tcp)
+Xadicionado = list() #A parte onde ficarão os valores com o {}X^{}, individualmente.
+# FUNÇÕES PERSONALIZADAS ---------------------------
+def AdX(x , y): #Adicionadora de X (caso você queira adicionar X ao lado do valor puro, EX: [2.0 , 3.0] [2.0 , 1.0] --> 2X² 3X¹
+    return "{}X^{}".format(x , y)
 def Der(x): #Derivação na parte das "bases"/números puros
         return NpEq[x] * NeEq[x]
 def El(x): #A parte que subtrai em 1 a potência
         return NeEq[x] -1
-
+#-----------------------------------------------------
 TCP = 0
 if GM >= 0:
     Tcp = GM+1
@@ -51,4 +48,14 @@ if NpEq == []:
      print ("Derivada é 0")
 else:
      print ("Derivada é {} multiplicado por 'X' elevado a {}".format(NpEq , NeEq)) 
+tcp = 0
+NEEQ = NeEq
+print(NEEQ)
+while tcp <= NeEq[1]+1:
+     XX = NpEq[tcp]
+     YY = NEEQ[tcp]
+     ZZ = AdX(XX , YY)
+     Xadicionado.insert(tcp , ZZ)
+     tcp = tcp+1
+print(Xadicionado) #Resultado refinado
 #OBS: Só funciona pra polinômios de grau exclusivamente positivos ou exclusivamente negativos.
